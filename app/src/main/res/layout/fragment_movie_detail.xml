@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.yarenyarsilikal.movieland.data.model.response.MovieResponse" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screen.detail.MovieDetailFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/ivMovieImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/black_overlay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        loadImageViewWithUrl="@{movie.backdrop_path}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        tools:src="@drawable/moonrisekingdom" />
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/ibImdb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/logo_imdb"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivMovieImage" />
+
+                <TextView
+                    android:id="@+id/tvRating"
+                    style="@style/TextView.Desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:drawablePadding="@dimen/margin_xsmall"
+                    android:text="@{String.valueOf(movie.vote_average)}"
+                    android:textColor="@color/text_black"
+                    app:drawableStartCompat="@drawable/ic_rate"
+                    app:layout_constraintBottom_toBottomOf="@id/ibImdb"
+                    app:layout_constraintStart_toEndOf="@id/ibImdb"
+                    app:layout_constraintTop_toTopOf="@id/ibImdb"
+                    tools:text="7.8" />
+
+                <TextView
+                    android:id="@+id/tvRatingConstant"
+                    style="@style/TextView.Desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/margin_xsmall"
+                    app:drawableEndCompat="@drawable/dot"
+                    app:layout_constraintBottom_toBottomOf="@id/ibImdb"
+                    app:layout_constraintStart_toEndOf="@id/tvRating"
+                    app:layout_constraintTop_toTopOf="@id/ibImdb"
+                    tools:text="/10" />
+
+                <TextView
+                    android:id="@+id/tvMovieDate"
+                    style="@style/TextView.Desc"
+                    dateText="@{movie.release_date}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:textColor="@color/text_black"
+                    app:layout_constraintBottom_toBottomOf="@id/ibImdb"
+                    app:layout_constraintStart_toEndOf="@id/tvRatingConstant"
+                    app:layout_constraintTop_toTopOf="@id/ibImdb"
+                    tools:text="15.06.2021" />
+
+                <TextView
+                    android:id="@+id/tvMovieTitle"
+                    style="@style/TextView.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@{movie.original_title}"
+                    android:textSize="@dimen/dimen_20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibImdb"
+                    tools:text="Moonrise Kingdom (2012)" />
+
+                <TextView
+                    android:id="@+id/tvMovieDesc"
+                    style="@style/TextView.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@{movie.overview}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+                    tools:text="Moonrise Kingdom is a 2012 American coming-of-age comedy-drama film directed by Wes Anderson, written by Anderson and Roman Coppola. It features an ensemble cast including Bruce Willis, Edward Norton, Bill Murray, Frances McDormand, Tilda Swinton, Jason Schwartzman, Bob Balaban, Harvey Keitel, and newcomers Jared Gilman and Kara Hayward. Largely set on the fictional New England island of New Penzance, it tells the story of an orphan boy (Gilman) who escapes from a scouting camp to unite with his pen pal and love interest, a girl with aggressive tendencies (Hayward). Feeling alienated from their guardians and shunned by their peers, the lovers abscond to an isolated beach. Meanwhile, the island's police captain (Willis) organizes a search party of scouts and family members to locate the runaways.
+In crafting their screenplay, Anderson and Coppola drew from personal experiences and memories of" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--TextView-->
+    <style name="TextView.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/dimen_15sp</item>
+        <item name="android:fontWeight" tools:targetApi="o">700</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:lineHeight" tools:targetApi="p">20dp</item>
+        <item name="android:gravity">top|left</item>
+    </style>
+
+    <style name="TextView.Desc" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/dimen_13sp</item>
+        <item name="android:fontWeight" tools:targetApi="o">500</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">@color/text_gray</item>
+        <item name="android:lineHeight" tools:targetApi="p">18dp</item>
+        <item name="android:gravity">top|left</item>
+    </style>
+
+    <style name="TextView.Desc.Thinner" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/dimen_12sp</item>
+        <item name="android:fontWeight" tools:targetApi="o">500</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">@color/text_gray</item>
+        <item name="android:lineHeight" tools:targetApi="p">16dp</item>
+        <item name="android:gravity">top|right</item>
+    </style>
+</resources>
