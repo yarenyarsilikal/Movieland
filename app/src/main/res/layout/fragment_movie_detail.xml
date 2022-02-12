@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="movie"
             type="com.yarenyarsilikal.movieland.data.model.response.MovieResponse" />
+
+        <variable
+            name="viewModel"
+            type="com.yarenyarsilikal.movieland.screen.detail.MovieDetailViewModel" />
     </data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screen.detail.MovieDetailFragment">
@@ -26,21 +30,23 @@
                 <FrameLayout
                     android:id="@+id/ivMovieImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/margin_xxxxlarge"
                     android:foreground="@drawable/black_overlay"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/ibImdb"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         loadImageViewWithUrl="@{movie.backdrop_path}"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:scaleType="fitXY"
+                        android:layout_height="match_parent"
                         tools:src="@drawable/moonrisekingdom" />
                 </FrameLayout>
 
                 <ImageButton
+                    android:onClick="@{() -> viewModel.imdbClickEvent(movie.imdb_id)}"
                     android:id="@+id/ibImdb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,29 +59,18 @@
                 <TextView
                     android:id="@+id/tvRating"
                     style="@style/TextView.Desc"
+                    rateText="@{String.valueOf(movie.vote_average)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"
                     android:drawablePadding="@dimen/margin_xsmall"
-                    android:text="@{String.valueOf(movie.vote_average)}"
                     android:textColor="@color/text_black"
+                    app:drawableEndCompat="@drawable/dot"
                     app:drawableStartCompat="@drawable/ic_rate"
                     app:layout_constraintBottom_toBottomOf="@id/ibImdb"
                     app:layout_constraintStart_toEndOf="@id/ibImdb"
                     app:layout_constraintTop_toTopOf="@id/ibImdb"
-                    tools:text="7.8" />
-
-                <TextView
-                    android:id="@+id/tvRatingConstant"
-                    style="@style/TextView.Desc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/margin_xsmall"
-                    app:drawableEndCompat="@drawable/dot"
-                    app:layout_constraintBottom_toBottomOf="@id/ibImdb"
-                    app:layout_constraintStart_toEndOf="@id/tvRating"
-                    app:layout_constraintTop_toTopOf="@id/ibImdb"
-                    tools:text="/10" />
+                    tools:text="7.8/10" />
 
                 <TextView
                     android:id="@+id/tvMovieDate"
@@ -86,7 +81,7 @@
                     android:layout_marginStart="@dimen/margin_small"
                     android:textColor="@color/text_black"
                     app:layout_constraintBottom_toBottomOf="@id/ibImdb"
-                    app:layout_constraintStart_toEndOf="@id/tvRatingConstant"
+                    app:layout_constraintStart_toEndOf="@id/tvRating"
                     app:layout_constraintTop_toTopOf="@id/ibImdb"
                     tools:text="15.06.2021" />
 
@@ -120,7 +115,6 @@
 In crafting their screenplay, Anderson and Coppola drew from personal experiences and memories of" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </ScrollView>
     </FrameLayout>
 </layout>

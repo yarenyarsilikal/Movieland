@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.yarenyarsilikal.movieland.data.model.response.MovieResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_xxxxlarge">
+
+        <FrameLayout
+            android:id="@+id/ivNowPlayingImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/black_overlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                loadImageViewWithUrl="@{movie.backdrop_path}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:src="@drawable/moonrisekingdom" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvNowPlayingTitle"
+            style="@style/TextView.Title.White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{movie.original_title}"
+            app:layout_constraintBottom_toTopOf="@id/tvNowPlayingDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Moonrise Kingdom (2012)" />
+
+        <TextView
+            android:id="@+id/tvNowPlayingDesc"
+            style="@style/TextView.Desc.Thinner.White"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_xlarge"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{movie.overview}"
+            app:layout_constraintBottom_toBottomOf="@id/ivNowPlayingImage"
+            app:layout_constraintEnd_toEndOf="@id/tvNowPlayingTitle"
+            app:layout_constraintStart_toStartOf="@id/tvNowPlayingTitle"
+            tools:text="A pair of young lovers flee their New England town, which causes a local search party to fan out to find them." />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/tvNowPlayingDesc"
+            app:layout_constraintBottom_toBottomOf="@id/ivNowPlayingImage"
+            app:layout_constraintEnd_toEndOf="@id/tvNowPlayingTitle"
+            app:layout_constraintStart_toStartOf="@id/tvNowPlayingTitle"
+            app:tabBackground="@drawable/indicator_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

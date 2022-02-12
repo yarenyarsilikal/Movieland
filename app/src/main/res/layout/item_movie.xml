@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout>
+
     <data>
+
         <variable
             name="movie"
             type="com.yarenyarsilikal.movieland.data.model.response.MovieResponse" />
@@ -16,9 +18,9 @@
 
         <ImageView
             android:id="@+id/ivMovieImage"
+            loadImageViewWithUrl="@{movie.backdrop_path}"
             android:layout_width="@dimen/dimen_104dp"
             android:layout_height="@dimen/dimen_104dp"
-            loadImageViewWithUrl="@{movie.backdrop_path}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,11 +28,11 @@
         <TextView
             android:id="@+id/tvMovieTitle"
             style="@style/TextView.Title"
-            android:text="@{movie.original_title}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginTop="@dimen/margin_small"
+            android:text="@{movie.original_title}"
             app:layout_constraintStart_toEndOf="@id/ivMovieImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Movie Title" />
@@ -38,12 +40,13 @@
         <TextView
             android:id="@+id/tvMovieDesc"
             style="@style/TextView.Desc"
-            android:text="@{movie.overview}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_large"
+            android:maxLines="2"
+            android:text="@{movie.overview}"
             app:layout_constraintEnd_toStartOf="@id/ivArrow"
             app:layout_constraintStart_toEndOf="@id/ivMovieImage"
             app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
@@ -60,8 +63,8 @@
 
         <TextView
             android:id="@+id/tvMovieDate"
-            dateText="@{movie.release_date}"
             style="@style/TextView.Desc.Thinner"
+            dateText="@{movie.release_date}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"

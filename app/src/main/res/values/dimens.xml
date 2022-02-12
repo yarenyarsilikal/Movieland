@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_xsmall">4</dimen>
-    <dimen name="margin_small">8</dimen>
-    <dimen name="margin_medium">16</dimen>
-    <dimen name="margin_large">24</dimen>
-    <dimen name="margin_xlarge">32</dimen>
-    <dimen name="margin_xxlarge">64</dimen>
-    <dimen name="margin_xxxlarge">128</dimen>
+    <dimen name="margin_xsmall">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+    <dimen name="margin_xxlarge">64dp</dimen>
+    <dimen name="margin_xxxlarge">128dp</dimen>
+    <dimen name="margin_xxxxlarge">256dp</dimen>
 
+    <dimen name="dimen_104dp">104dp</dimen>
 
-    <dimen name="dimen_104dp">104</dimen>
-
-
-    <dimen name="dimen_12sp">12</dimen>
-    <dimen name="dimen_13sp">13</dimen>
-    <dimen name="dimen_15sp">15</dimen>
-    <dimen name="dimen_20sp">20</dimen>
+    <dimen name="dimen_12sp">12sp</dimen>
+    <dimen name="dimen_13sp">13sp</dimen>
+    <dimen name="dimen_15sp">15sp</dimen>
+    <dimen name="dimen_20sp">20sp</dimen>
 </resources>
