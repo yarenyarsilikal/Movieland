@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.yarenyarsilikal.movieland.data.model.response.MovieResponse
 import com.yarenyarsilikal.movieland.data.model.response.MoviesResponse
 import com.yarenyarsilikal.movieland.data.repository.Repository
-import com.yarenyarsilikal.movieland.util.AppConstants
 import com.yarenyarsilikal.movieland.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,11 +27,11 @@ class MoviesViewModel @Inject constructor(private val repository: Repository) : 
     val upcomingNewPage: LiveData<List<MovieResponse>>
         get() = mutableUpcomingNewPage
 
-    private val mutableMovieItemClickEvent : MutableLiveData<Event<Int>> = MutableLiveData()
-    val movieItemClickEvent : LiveData<Event<Int>>
+    private val mutableMovieItemClickEvent: MutableLiveData<Event<Int>> = MutableLiveData()
+    val movieItemClickEvent: LiveData<Event<Int>>
         get() = mutableMovieItemClickEvent
 
-    private var page : Int = 1
+    private var page: Int = 1
 
     fun getNowPlayingMovies() {
         viewModelScope.launch {
@@ -46,14 +45,14 @@ class MoviesViewModel @Inject constructor(private val repository: Repository) : 
         }
     }
 
-    fun pageRefreshed () {
+    fun pageRefreshed() {
         getUpcomingMovies()
         getNowPlayingMovies()
     }
 
-    fun scrolledEndOfPage () {
+    fun scrolledEndOfPage() {
         viewModelScope.launch {
-            if (mutableUpcoming.value?.total_pages ?: 1 >= page){
+            if (mutableUpcoming.value?.total_pages ?: 1 >= page) {
                 page += 1
                 mutableUpcomingNewPage.value = repository.getUpcomingMovies(page).results
             }

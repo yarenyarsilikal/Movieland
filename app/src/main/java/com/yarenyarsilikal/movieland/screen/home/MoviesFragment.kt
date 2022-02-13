@@ -40,7 +40,7 @@ class MoviesFragment : Fragment() {
         viewModel.getNowPlayingMovies()
         viewModel.getUpcomingMovies()
         observeItemClick()
-        obserseUpcomingMovies()
+        observeUpcomingMovies()
         observeUpcomingMoviesNewPage()
         setListeners()
     }
@@ -53,7 +53,7 @@ class MoviesFragment : Fragment() {
         })
     }
 
-    private fun obserseUpcomingMovies() {
+    private fun observeUpcomingMovies() {
         viewModel.upcoming.observe(viewLifecycleOwner) {
             it?.let {
                 adapter = UpComingMovieAdapter(it.results) {
