@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="@id/tvNowPlayingTitle"
             tools:text="A pair of young lovers flee their New England town, which causes a local search party to fan out to find them." />
 
-        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
             android:id="@+id/dots_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
