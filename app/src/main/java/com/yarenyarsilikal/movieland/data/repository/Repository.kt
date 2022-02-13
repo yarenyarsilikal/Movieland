@@ -12,7 +12,8 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(private val api: Api) {
 
-    suspend fun getUpcomingMovies(): MoviesResponse = api.getUpcomingMovies()
+    suspend fun getUpcomingMovies(page: Int = 1): MoviesResponse =
+        api.getUpcomingMovies(page = page)
 
     suspend fun getNowPlayingMovies(): MoviesResponse = api.getNowPlaying()
 

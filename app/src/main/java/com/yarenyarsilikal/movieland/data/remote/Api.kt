@@ -3,6 +3,8 @@ package com.yarenyarsilikal.movieland.data.remote
 import com.yarenyarsilikal.movieland.BuildConfig.KEY_API
 import com.yarenyarsilikal.movieland.data.model.response.MovieResponse
 import com.yarenyarsilikal.movieland.data.model.response.MoviesResponse
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

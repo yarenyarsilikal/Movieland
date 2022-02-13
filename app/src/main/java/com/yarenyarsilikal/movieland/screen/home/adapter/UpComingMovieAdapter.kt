@@ -24,6 +24,11 @@ class UpComingMovieAdapter(
         list?.get(position)?.let { holder.bind(it, onMovieClickListener) }
     }
 
-    override fun getItemCount(): Int = 10
-        //list?.size ?: 0
+    override fun getItemCount(): Int = list?.size ?: 0
+
+    fun addItems(newItems: List<MovieResponse>?){
+        newItems?.let {
+            list = list?.plus(newItems)
+        }
+    }
 }
