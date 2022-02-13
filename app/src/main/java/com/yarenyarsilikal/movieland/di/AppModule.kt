@@ -1,4 +1,4 @@
-package com.yarenyarsilikal.movieland
+package com.yarenyarsilikal.movieland.di
 
 import com.yarenyarsilikal.movieland.data.remote.Api
 import com.yarenyarsilikal.movieland.data.repository.Repository

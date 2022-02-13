@@ -6,35 +6,51 @@
         <variable
             name="viewModel"
             type="com.yarenyarsilikal.movieland.screen.home.MoviesViewModel" />
+
+        <variable
+            name="movies"
+            type="com.yarenyarsilikal.movieland.data.model.response.MoviesResponse" />
     </data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        refreshListener="@{() -> viewModel.pageRefreshed()}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screen.home.MoviesFragment">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/vpNowPlaying"
+                    onItemClick="@{viewModel.onMovieItemClicked}"
+                    vpList="@{viewModel.nowPlaying.results}"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin_xxxxlarge"/>
+                    android:layout_height="@dimen/margin_xxxxlarge" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvMovies"
+                    onItemClick="@{viewModel.onMovieItemClicked}"
+                    rvList="@{viewModel.upcoming.results}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_movie" />
 
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
-        </ScrollView>
-    </FrameLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

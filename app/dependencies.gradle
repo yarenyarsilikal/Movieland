@@ -66,4 +66,7 @@ dependencies {
     //region Paging
     implementation "androidx.paging:paging-runtime:$paging_version"
     //endregion
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
 }
