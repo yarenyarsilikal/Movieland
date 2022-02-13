@@ -15,9 +15,9 @@ import com.yarenyarsilikal.movieland.databinding.ItemNowPlayingBinding
  * Created by yarenyarsilikal on 12.02.2022.
  */
 class NowPlayingViewPagerAdapter(
-    private val movies : List<MovieResponse>,
-    private val viewPager : ViewPager?,
-    private val onItemClick : ((Int) -> Unit)?
+    private val movies: List<MovieResponse>,
+    private val viewPager: ViewPager?,
+    private val onItemClick: ((Int) -> Unit)?
 ) : PagerAdapter() {
     override fun getCount(): Int = movies.size
 
@@ -32,7 +32,7 @@ class NowPlayingViewPagerAdapter(
         )
         container.addView(binding.root)
         binding.movie = movies[position]
-        binding.tab.setupWithViewPager(viewPager, true)
+        viewPager?.let { binding.dotsIndicator.setViewPager(it) }
         binding.root.setOnClickListener { onItemClick?.invoke(movies[position].id) }
         return binding.root
     }

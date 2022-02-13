@@ -16,9 +16,7 @@ class UpComingMovieViewHolder(private val binding: ItemMovieBinding) :
     ) {
         binding.movie = movieModel
         itemView.setOnClickListener {
-            onMovieClickListener?.let {
-                onMovieClickListener(movieModel.id)
-            }
+            onMovieClickListener?.invoke(movieModel.id)
         }
     }
 

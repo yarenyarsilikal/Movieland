@@ -1,5 +1,4 @@
 dependencies {
-    def paging_version = "2.1.2"
     def retrofit_version = "2.9.0"
     def hilt_version = "2.38.1"
 
@@ -63,10 +62,11 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     //endregion
 
-    //region Paging
-    implementation "androidx.paging:paging-runtime:$paging_version"
+    //region Refresh Layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     //endregion
 
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
+    //region Dot Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.2'
+    //endregion
 }

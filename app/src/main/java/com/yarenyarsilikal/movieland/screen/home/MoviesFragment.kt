@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.yarenyarsilikal.movieland.R
 import com.yarenyarsilikal.movieland.databinding.FragmentMoviesBinding
 import com.yarenyarsilikal.movieland.screen.home.adapter.UpComingMovieAdapter
@@ -59,7 +57,7 @@ class MoviesFragment : Fragment() {
         viewModel.upcoming.observe(viewLifecycleOwner) {
             it?.let {
                 adapter = UpComingMovieAdapter(it.results) {
-                    viewModel.onMovieItemClicked
+                    viewModel.onMovieItemClicked(it)
                 }
                 binding?.rvMovies?.adapter = adapter
             }
